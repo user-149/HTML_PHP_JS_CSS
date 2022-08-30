@@ -146,7 +146,7 @@
 						</label>
 					</th>
 					<th>
-						<input type="number" name="txtID" id="id">
+						<input type="number" name="txtID" ID="id">
 					</th>
 					<th>
 						<button name="cmdDelete" onclick="">
@@ -161,7 +161,7 @@
 		</h2>
 		<?php
 			// membuat query;
-			$strQuery="SELECT * FROM instruktur;";
+			$strQuery="SELECT * FROM pengajar;";
 			// proses query;
 			$query=mysqli_query($conTraining, $strQuery) or die(mysqli_error());
 			// fetching data;
@@ -194,12 +194,12 @@
 				while ($data=mysqli_fetch_array($query))
 				{
 					// code...
-					$ID=$data["id"];
-					$nama=$data["Nama"];
-					$tanggal=$data["TanggalLahir"];
-					$usia=$data["Usia"];
-					$kelamin=$data["Kelamin"];
-					$status =$data["IsMenikah"];
+					$ID=$data["Pengajar_ID"];
+					$nama=$data["Pengajar_Name"];
+					$BirthDay=$data["Pengajar_BirthDay"];
+					$usia=$data["Pengajar_Usia"];
+					$kelamin=$data["Pengajar_Kelamin"];
+					$status =$data["Pengajar_Status"];
 			 ?>
 			<tr>
 				<td>
@@ -209,7 +209,7 @@
 					<?php echo $nama; ?>
 				</td>
 				<td>
-					<?php echo $tanggal; ?>
+					<?php echo $BirthDay; ?>
 				</td>
 				<td>
 					<?php echo $usia; ?>
@@ -221,7 +221,11 @@
 					<?php echo ($status==1) ? "Sudah Taken" : "Jomblo Menahun"; ?>
 				</td>
 				<td>
-					<a href="Delete_Pengajar.php?id=<?php echo $data['id']; ?>">
+					<a href="Edit_Pengajar.php?id=<?php echo $data['Pengajar_ID']; ?>">
+						Change
+					</a>
+					or
+					<a href="Delete_Pengajar.php?id=<?php echo $data['Pengajar_ID']; ?>">
 						Delete
 					</a>
 				</td>
@@ -230,5 +234,10 @@
 				}
 			 ?>
 		</table>
+		<footer>
+			<p>
+				&copy; 2022, PT Yamaha Motor Electronics Indonesia
+			</p>
+		</footer>
 	</body>
 </html>

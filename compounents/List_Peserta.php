@@ -193,38 +193,39 @@
 			<?php 
 				while ($data=mysqli_fetch_array($query)) {
 					// code...
-					$ID=$data["id"];
-					$nama=$data["Nama"];
-					$tanggal=$data["TanggalLahir"];
-					$usia=$data["Usia"];
-					$kelamin=$data["Kelamin"];
-					$status =$data["IsMenikah"];
+					$PesertaID=$data["Peserta_ID"];
+					$PesertaName=$data["Peserta_Name"];
+					$PesertaBirthDay=$data["Peserta_BirthDay"];
+					$PesertaUsia=$data["Peserta_Usia"];
+					$PesertaKelamin=$data["Peserta_Kelamin"];
+					$PesertaStatus =$data["Peserta_Status"];
 				
 			 ?>
 			<tr>
 				<td>
-					<?php echo $ID; ?>
+					<?php echo $PesertaID; ?>
 				</td>
 				<td>
-					<?php echo $nama; ?>
+					<?php echo $PesertaName; ?>
 				</td>
 				<td>
-					<?php echo $tanggal; ?>
+					<?php echo $PesertaBirthDay; ?>
 				</td>
 				<td>
-					<?php echo $usia; ?>
+					<?php echo $PesertaUsia; ?>
 				</td>
 				<td>
-					<?php echo $kelamin; ?>
+					<?php echo $PesertaKelamin; ?>
 				</td>
 				<td>
-					<?php echo ($status==1) ? "Sudah Taken" : "Jomblo Menahun"; ?>
+					<?php echo ($PesertaStatus==1) ? "Sudah Taken" : "Jomblo Menahun"; ?>
 				</td>
 				<td>
-					<a href="Change_Peserta.php">
+					<a href="Edit_Peserta.php?id=<?php echo $data['Peserta_ID']; ?>">
 						Change
 					</a>
-					<a href="Delete_Peserta.php?id=<?php echo $data['id']; ?>">
+					or
+					<a href="Delete_Peserta.php?id=<?php echo $data['Peserta_ID']; ?>">
 						Delete
 					</a>
 				</td>
@@ -233,5 +234,10 @@
 				}
 			 ?>
 		</table>
+		<footer>
+			<p>
+				&copy; 2022, PT Yamaha Motor Electronics Indonesia
+			</p>
+		</footer>
 	</body>
 </html>

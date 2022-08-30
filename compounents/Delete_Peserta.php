@@ -2,15 +2,8 @@
 	include 'Connection.php';
 	// prepare query;
 	// $id = $_POST['txtID'];
-	$id = $_GET['id'];
-	// $Nama = $_POST['txtNama'];
-	// $TanggalLahir = $_POST['dtpTanggalLahir'];
-	// $Usia = $_POST['txtUsia'];
-	// $Kelamin = ($_POST['opgkelamin'] == "Pria") ? "Pria" : "Wanita";
-	// $IsMenikah = (isset($_POST['chkIsMenikah'])) ? TRUE : FALSE ;
-	// membuat query;
-	// $strQuery="INSERT INTO peserta(nama,TanggalLahir,usia,kelamin,isMenikah) VALUES ('$Nama','$TanggalLahir','$Usia','$Kelamin','$IsMenikah' );";
-	$strQuery="DELETE FROM peserta WHERE id = '$id'";
+	$DelPesertaID = $_GET['id'];
+	$strQuery="DELETE FROM peserta WHERE Peserta_ID = '$DelPesertaID'";
 	// proses query;
 	$query=mysqli_query($conTraining, $strQuery) or die(mysqli_error($conTraining));
 	if ($query) {

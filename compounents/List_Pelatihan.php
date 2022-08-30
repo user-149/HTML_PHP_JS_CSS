@@ -66,18 +66,88 @@
 		<h1>
 			Selamat datang di Page List Pelatihan
 		</h1>
+		<h3>
+			Daftar Pelatihan Sekarang!
+		</h3>
+		<form name="frmPelatihan" action="Create_Pelatihan.php" method="post">
+			<table class="center" border="2" cellpadding="5" bgcolor="white">
+				<tr>
+					<td>
+						<label>
+							Ruang
+						</label>	
+					</td>
+					<td>
+						<input type="text" name="txtRuang">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>
+							Tanggal
+						</label>
+					</td>
+					<td>
+						<input type="date" name="dtpTanggalPelatihan">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>
+							Materi
+						</label>
+					</td>
+					<td>
+						<input type="text" name="txtMateri">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>
+							ID Pengajar
+						</label>
+					</td>
+					<td>
+						<input type="number" name="txtIDPengajar">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>
+							ID Peserta
+						</label>
+					</td>
+					<td>
+						<input type="number" name="txtIDPeserta">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>
+							Selesai!
+						</label>
+					</td>
+					<td>
+						<input type="submit" name="cmdSubmit" onclick="">
+					</td>
+				</tr>
+			</table>
+		</form>
 		<h2>
 			Summary List Pelatihan
 		</h2>
 		<?php
 			// membuat query;
-			$strQuery="SELECT * FROM viewPelatihan;";
+			$strQuery="SELECT * FROM view_pelatihan";
 			// proses query;
 			$query=mysqli_query($conTraining, $strQuery) or die(mysqli_error());
 			// fetching data;
 		 ?>
 		<table class="table center" border="2" cellpadding="5">
 			<tr>
+				<th>
+					ID
+				</th>
 				<th>
 					Ruang
 				</th>
@@ -88,42 +158,63 @@
 					Materi
 				</th>
 				<th>
+					Pengajar
+				</th>
+				<th>
 					Peserta
 				</th>
 				<th>
-					Instruktur
+					Modify
 				</th>
 			</tr>
 			<?php 
 				while ($data=mysqli_fetch_array($query)) {
 					// code...
-					$ruang=$data["ruang"];
-					$tanggal=$data["tanggal"];
-					$materi=$data["materi"];
-					$murid=$data["murid"];
-					$guru=$data["guru"];
+					$PelatihanID=$data["Pelatihan_ID"];
+					$PelatihanRuang=$data["Pelatihan_Ruang"];
+					$PelatihanTanggal=$data["Pelatihan_Tanggal"];
+					$PelatihanMateri=$data["Pelatihan_Materi"];
+					$PengajarID=$data["Pengajar_ID"];
+					$PesertaID=$data["Peserta_ID"];
 				
 			 ?>
 			<tr>
 				<td>
-					<?php echo $ruang; ?>
+					<?php echo $PelatihanID; ?>
 				</td>
 				<td>
-					<?php echo $tanggal; ?>
+					<?php echo $PelatihanRuang; ?>
 				</td>
 				<td>
-					<?php echo $materi; ?>
+					<?php echo $PelatihanTanggal; ?>
 				</td>
 				<td>
-					<?php echo $murid; ?>
+					<?php echo $PelatihanMateri; ?>
 				</td>
 				<td>
-					<?php echo $guru; ?>
+					<?php echo $PengajarID; ?>
+				</td>
+				<td>
+					<?php echo $PesertaID; ?>
+				</td>
+				<td>
+					<a href="Edit_Pelatihan.php?id=<?php echo $data['Pelatihan_ID']; ?>">
+						Change
+					</a>
+					or
+					<a href="Delete_Pelatihan.php?id=<?php echo $data['Pelatihan_ID']; ?>">
+						Delete
+					</a>
 				</td>
 			</tr>
 			<?php 
 				}
 			 ?>
 		</table>
+		<footer>
+			<p>
+				&copy; 2022, PT Yamaha Motor Electronics Indonesia
+			</p>
+		</footer>
 	</body>
 </html>

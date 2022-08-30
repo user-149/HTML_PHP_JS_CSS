@@ -1,18 +1,9 @@
 <?php
 	include 'Connection.php';
-	// // // prepare query;
-	// $id = $id;
-	// $id = $_POST['txtID'];
-	$id = $_GET['id']; // get id through query string
+	// prepare query;
+	$ID = $_GET['id']; // get id through query string
 	// $del = mysqli_query($db,"delete from instruktur where id = '$id'"); // delete query
-	// $Nama = $_POST['txtNama'];
-	// $TanggalLahir = $_POST['dtpTanggalLahir'];
-	// $Usia = $_POST['txtUsia'];
-	// $Kelamin = ($_POST['opgkelamin'] == "Pria") ? "Pria" : "Wanita";
-	// $IsMenikah = (isset($_POST['chkIsMenikah'])) ? TRUE : FALSE ;
-	// membuat query;
-	// $strQuery="INSERT INTO peserta(nama,TanggalLahir,usia,kelamin,isMenikah) VALUES ('$Nama','$TanggalLahir','$Usia','$Kelamin','$IsMenikah' );";
-	$strQuery="DELETE FROM instruktur WHERE id = '$id'";
+	$strQuery="DELETE FROM pengajar WHERE Pengajar_ID = '$ID'";
 	// proses query;
 	$query=mysqli_query($conTraining, $strQuery) or die(mysqli_error($conTraining));
 	if ($query) {

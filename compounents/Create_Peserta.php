@@ -1,13 +1,13 @@
 <?php
 	include 'Connection.php';
 	// prepare query;
-	$Nama = $_POST['txtNama'];
-	$TanggalLahir = $_POST['dtpTanggalLahir'];
-	$Usia = $_POST['txtUsia'];
-	$Kelamin = ($_POST['opgkelamin'] == "Pria") ? "Pria" : "Wanita";
-	$IsMenikah = (isset($_POST['chkIsMenikah'])) ? TRUE : FALSE ;
+	$CrtPesertaName = $_POST['txtNama'];
+	$CrtPesertaBirthDay = $_POST['dtpTanggalLahir'];
+	$CrtPesertaUsia = $_POST['txtUsia'];
+	$CrtPesertaKelamin = ($_POST['opgkelamin'] == "Pria") ? "Pria" : "Wanita";
+	$CrtPesertaStatus = (isset($_POST['chkIsMenikah'])) ? TRUE : FALSE ;
 	// membuat query;
-	$strQuery="INSERT INTO peserta(nama,TanggalLahir,usia,kelamin,isMenikah) VALUES ('$Nama','$TanggalLahir','$Usia','$Kelamin','$IsMenikah' );";
+	$strQuery="INSERT INTO peserta(Peserta_Name,Peserta_BirthDay,Peserta_Usia,Peserta_Kelamin,Peserta_Status) VALUES ('$CrtPesertaName','$CrtPesertaBirthDay','$CrtPesertaUsia','$CrtPesertaKelamin','$CrtPesertaStatus' );";
 	// proses query;
 	$query=mysqli_query($conTraining, $strQuery) or die(mysqli_error($conTraining));
 	if ($query) {

@@ -1,13 +1,13 @@
 <?php
 	include 'Connection.php';
 	// prepare query;
-	$Nama = $_POST['txtNama'];
-	$TanggalLahir = $_POST['dtpTanggalLahir'];
-	$Usia = $_POST['txtUsia'];
-	$Kelamin = ($_POST['opgkelamin'] == "Pria") ? "Pria" : "Wanita";
-	$IsMenikah = (isset($_POST['chkIsMenikah'])) ? TRUE : FALSE ;
+	$CrtPengajarName = $_POST['txtNama'];
+	$CrtPengajarBirthDay = $_POST['dtpTanggalLahir'];
+	$CrtPengajarUsia = $_POST['txtUsia'];
+	$CrtPengajarKelamin = ($_POST['opgkelamin'] == "Pria") ? "Pria" : "Wanita";
+	$CrtPengajarStatus = (isset($_POST['chkIsMenikah'])) ? TRUE : FALSE ;
 	// membuat query;
-	$strQuery="INSERT INTO instruktur(nama,TanggalLahir,usia,kelamin,isMenikah) VALUES ('$Nama','$TanggalLahir','$Usia','$Kelamin','$IsMenikah' );";
+	$strQuery="INSERT INTO pengajar(Pengajar_Name,Pengajar_BirthDay,Pengajar_Usia,Pengajar_Kelamin,Pengajar_Status) VALUES ('$CrtPengajarName','$CrtPengajarBirthDay','$CrtPengajarUsia','$CrtPengajarKelamin','$CrtPengajarStatus' );";
 	// proses query;
 	$query=mysqli_query($conTraining, $strQuery) or die(mysqli_error($conTraining));
 	if ($query) {

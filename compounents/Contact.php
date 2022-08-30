@@ -62,50 +62,35 @@
 		<h1>
 			Kontak page
 		</h1>
-
-		<!-- ini adalah list -->
-		<h2>
-			Contact list
-		</h2>
-		<h4>
-			Phone number
-		</h4>
-		<!-- <ul>
-			<li>
-				<br>022-0012032 - Adi
-			</li>
-			<li>
-				<br>022-0012304 - Alif
-			</li>
-			<li>
-				<br>022-0012453 - Sony
-			</li>
-		</ul>
-		<br> -->
-		<h2>
-			Not found?
-		</h2>
-		<h3>
-			leave a massage!
-		</h3>
-		<form>
-			<div class="small-container">
-				<label for="nama">
-					masukkan nama anda
+		<div class="container center1">
+			<form action="action_page.php">
+				<label for="name">
+					Nama anda
 				</label>
-				<input type="text" name="nama" id="nama">
+				<input type="text" id="name" name="name" placeholder="Kimi no Namae..">
+				<br>
+				<!-- <label for="lname">
+					No.Telp anda
+				</label>
+				<input type="number" id="lname" name="lastname" placeholder="Your last name..">
+				<br> -->
 				<label for="email">
-					masukkan email anda
+					E-mail anda
 				</label>
-				<input type="text" name="email" id="email">
-				<button>
-					submit
-				</button>
-			</div>
-			
-		</form>
-		<div class="container">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d633.5988189642658!2d106.67393640127135!3d-6.339229179973192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e4fdc3550781%3A0xfa6acf0cb394632c!2sGudang%20Lintasarta%20Taman%20Tekno!5e0!3m2!1sid!2sid!4v1660027728864!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				<input type="text" id="email" name="email" placeholder="Email anda..">
+				<br>
+				<label for="subject">
+					Subject
+				</label>
+				<textarea id="subject" name="subject" placeholder="Deskripsikan Kebutuhan Anda.." style="height:200px">
+				</textarea>
+				<input type="submit" value="Submit">
+			</form>
 		</div>
+		<footer>
+			<p>
+				&copy; 2022, PT Yamaha Motor Electronics Indonesia
+			</p>
+		</footer>
 	</body>
 </html>
